@@ -34,8 +34,12 @@ class LikePageState extends State<LikePage>{
   void likeImage(){
     setState(() {
       like = !like;
-      if (like && !unlike){
+      if (like){
         likeBtn = 'like';
+        if(like && unlike){
+          unlikeBtn = 'unlikeoutline';
+          unlike = false;
+        }
       }else{
         likeBtn = 'likeoutline';
       }
@@ -45,8 +49,12 @@ class LikePageState extends State<LikePage>{
   void unlikeImage(){
     setState(() {
       unlike = !unlike;
-      if (unlike && !like){
+      if (unlike){
         unlikeBtn = 'unlike';
+        if (like && unlike){
+          likeBtn = 'likeoutline';
+          like = false;
+        }
       }else{
         unlikeBtn = 'unlikeoutline';
       }
